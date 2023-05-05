@@ -44,7 +44,7 @@ struct ContentView: View {
                             //アスペクト比を維持してエリア内に収まるようにする
                             .scaledToFit()
                             //高さ40
-                            .frame()
+                            .frame(height: 40)
                         
                     } placeholder: {
                         //読み込み中はインジケーターを表示する
