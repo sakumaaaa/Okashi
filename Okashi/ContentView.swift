@@ -28,6 +28,34 @@ struct ContentView: View {
             .submitLabel(.search)
             //上下左右に空白を空ける
             .padding()
+            
+            //リストを表示する
+            List(okashiDataList.okashiList) { okashi in
+                //1つ1つの要素をとりだす
+                //Listの表示内容を生成する
+                //水平にレイアウト（横方向にレイアウト）
+                HStack {
+                    //画像を読み込み表示する
+                    AsyncImage(url: okashi.image) { image in
+                        //画像を表示する
+                        image
+                            //リサイズする
+                            .resizable()
+                            //アスペクト比を維持してエリア内に収まるようにする
+                            .scaledToFit()
+                            //高さ40
+                            .frame()
+                        
+                    } placeholder: {
+                        //読み込み中はインジケーターを表示する
+                        ProgressView()
+                    }
+                    //テキストを表示する
+                    Text(okashi.name)
+                }//HStack
+            }//List
+            
+            
         }//VStack
     }//View
 }//ContentView
